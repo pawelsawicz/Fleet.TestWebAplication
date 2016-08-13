@@ -27,5 +27,10 @@ namespace Fleet.TestWebAplication
         {
             return context.Response.WriteAsync("user has been updated");
         }
+
+        public Task RemoveUser(HttpContext context)
+        {
+return context.Response.WriteAsync("user has been removed");
+        }
     }
 }

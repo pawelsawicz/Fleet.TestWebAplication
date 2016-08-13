@@ -31,7 +31,7 @@ namespace Fleet.TestWebAplication
                 return testModule.GetUsers(context);
             });
 
-            routeBuilder.MapGet("users/{name}", context =>
+            routeBuilder.MapGet("users/{name:alpha}", context =>
             {
                 var testModule = new TestModule();
                 return testModule.GetUserProfile(context);
@@ -47,6 +47,12 @@ namespace Fleet.TestWebAplication
             {
                 var testModule = new TestModule();
                 return testModule.UpdateUser(context);
+            });
+
+            routeBuilder.MapDelete("users/{id:int}", context =>
+            {
+                var testModule = new TestModule();
+                return testModule.RemoveUser(context);
             });
 
             var routes = routeBuilder.Build();
